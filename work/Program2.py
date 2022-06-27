@@ -1,0 +1,7 @@
+print("{0:10d}".format(12345678))
+print("{0:10,d}".format(12345678))
+print("{0:10.2f}".format(1234.5678))
+print("{0:10,.2f}".format(1234.5678))
+print("{0:10,.3f}".format(1234.5678))
+print("{0:10.2%}".format(12.345678))
+print("{0:10,.3%}".format(12.345678))
