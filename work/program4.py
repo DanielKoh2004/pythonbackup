@@ -9,7 +9,15 @@ mediumsunsetyellow = msy = 55.00
 largeoakwoodeffect = lowe = 286.00
 extralargewhitemarble = elwm = 290.00
 
-wallcount = 0
+wallheight1 = 0
+wallheight2 = 0
+wallheight3 = 0
+wallheight4 = 0
+wallwidth1 = 0
+wallwidth2 = 0
+wallwidth3 = 0
+wallwidth4 = 0
+
 
 #input first wall data
 wallheight1 = int(input("Enter the wall's height : "))
@@ -26,7 +34,6 @@ while walltile1 not in ['smallblackgranite','mediumsunsetyellow','largeoakwoodef
     exit()
 areaofwall1 = wallheight1 * wallwidth1
 print("1 of 4 walls added")
-wallcount = wallcount + 1
 addwall1 = input("Would you like to add another wall? (Yes/No) : ")
 
 #input second wall data
@@ -45,7 +52,6 @@ if addwall1 in ['yes','Yes','y']:
         exit()
     areaofwall2 = wallheight2 * wallwidth2
     print("2 of 4 walls added")
-    wallcount = wallcount + 1
     addwall2 = input("Would you like to add another wall? (Yes/No) : ")
     
     #input third wall data
@@ -64,7 +70,6 @@ if addwall1 in ['yes','Yes','y']:
             exit()
         areaofwall3 = wallheight3 * wallwidth3
         print("3 of 4 walls added")
-        wallcount = wallcount + 1
         addwall3 = input("Would you like to add another wall? (Yes/No) : ")
     
         #input fourth wall data
@@ -83,23 +88,33 @@ if addwall1 in ['yes','Yes','y']:
                 exit()
             areaofwall4 = wallheight4 * wallwidth4
             print("4 of 4 walls added")
-            wallcount = wallcount + 1
         elif addwall3 in ['no','No','n']:
+            wallheight4 = 0
+            wallwidth4 = 0
             exit
         else:
             print("Invalid Input, Please Restart the Program")#error handler
     elif addwall2 in ['no','No','n']:
+        wallheight3 = 0
+        wallwidth3 = 0
+        wallheight4 = 0
+        wallwidth4 = 0
         exit
     else:
         print("Invalid Input, Please Restart the Program")#error handler
 elif addwall1 in ['no','No','n']:
+    wallheight2 = 0
+    wallwidth2 = 0
+    wallheight3 = 0
+    wallwidth3 = 0
+    wallheight4 = 0
+    wallwidth4 = 0
     exit
 else:
     print("Invalid Input, Please Restart the Program")#error handler
 
 #calculation part
 
-while(wallcount <= 1):
 #calculation for the first wall
     if walltile1 in ['smallblackgranite','sbg']:
         costoftile1 = smallblackgranite * areaofwall1
@@ -110,7 +125,6 @@ while(wallcount <= 1):
     else:
         while(walltile1 in ['extralargewhitemarble','elwm']):
             costoftile1 = extralargewhitemarble * areaofwall1
-while(wallcount <= 2):
 #calculation for the second wall
     if walltile2 in ['smallblackgranite','sbg']:
         costoftile2 = smallblackgranite * areaofwall2
@@ -121,7 +135,6 @@ while(wallcount <= 2):
     else:
         while(walltile2 in ['extralargewhitemarble','elwm']):
             costoftile2 = extralargewhitemarble * areaofwall2
-while(wallcount <= 3):
 #calculation for the third wall
     if walltile3 in ['smallblackgranite','sbg']:
         costoftile3 = smallblackgranite * areaofwall3
@@ -134,7 +147,6 @@ while(wallcount <= 3):
             costoftile3 = extralargewhitemarble * areaofwall3
 
 #calculation for the fourth wall
-while(wallcount <= 4):
     if walltile4 in ['smallblackgranite','sbg']:
         costoftile4 = smallblackgranite * areaofwall4
     elif walltile4 in ['mediumsunsetyellow','msy']:
@@ -149,28 +161,29 @@ total = costoftile1 + costoftile2 + costoftile3 + costoftile4
 
 #printing the output
 
-while(wallcount <= 4):
+while(areaofwall4 > 0):
     print("The area for the fourth wall is",format(areaofwall4,".2f"),"m²")
     print("The amount of box of tile needed for the fourth is ",format(areaofwall4,".0f"),"piece")
     print("Cost of the tile need needed for the fourth wall is","RM",format(costoftile4,".2f"))
-while(wallcount <= 3):
+    print('')
+while(areaofwall3 > 0):
     print("The area for the third wall is",format(areaofwall3,".2f"),"m²")
     print("The amount of box of tile needed for the third is ",format(areaofwall3,".0f"),"piece")
     print("Cost of the tile need needed for the third wall is","RM",format(costoftile3,".2f"))
-while(wallcount <= 2):
+    print('')
+while(areaofwall2 > 0):
     print("The area for the second wall is",format(areaofwall2,".2f"),"m²")
     print("The amount of box of tile needed for the second wall is ",format(areaofwall2,".0f"),"piece")
     print("Cost of the tile need needed for the second wall is","RM",format(costoftile2,".2f"))
-while (wallcount <= 1):
-        print("The area for the wall is",format(areaofwall1,".2f"),"m²")
-        print("The amount of box of tile needed for the wall is ",format(areaofwall1,".0f"),"piece")
-        print("Cost of the tile need needed for the wall is","RM",format(costoftile1,".2f"))
-
-
-
-
-
-
-
-
- 
+    print('')
+while (areaofwall1 > 0):
+    print("The area for the wall is",format(areaofwall1,".2f"),"m²")
+    print("The amount of box of tile needed for the wall is ",format(areaofwall1,".0f"),"piece")
+    print("Cost of the tile need needed for the wall is","RM",format(costoftile1,".2f"))
+    print('')
+print("The grand total for the price of the tiles needed is, RM",total)
+print('')
+startover = input("Do you want to enter another transaction?")
+if startover in ['yes','Yes','y']
+    start()
+    
